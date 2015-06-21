@@ -673,7 +673,7 @@ begin
             sqlite3_bind_double(Stmt, i, par.valuefloat);
           SQLITE_TEXT:
             sqlite3_bind_text(Stmt, i, pchar(par.valuedata),
-              length(par.valuedata), SQLITE_TRANSIENT);
+              length(par.valuedata) * Sizeof(char), SQLITE_TRANSIENT);
           SQLITE_NULL:
             sqlite3_bind_null(Stmt, i);
         end;
